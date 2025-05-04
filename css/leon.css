@@ -123,9 +123,10 @@ body {
 .landing {
   background-image: url(../images/landing.JPG);
   background-size: cover;
-  height: calc(100vh - 64px);
-
-  position: relative;
+  min-height: calc(100vh - 64px);
+  /* overflow: hidden; */
+  background-attachment: fixed;
+  background-position: center;
 }
 .landing .intro-text {
   position: absolute;
@@ -133,8 +134,8 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  width: 320px;
-  max-width: 100%;
+  width: 90%;
+  max-width: 400px;
 }
 .landing .intro-text h1 {
   font-weight: bold;
