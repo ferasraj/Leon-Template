@@ -66,3 +66,37 @@ window.addEventListener("scroll", () => {
 
   lastScrollY = currentScrollY;
 });
+
+//اضافة بقية كاردز بورتوفوليو
+const showMoreBtn = document.getElementById("showMoreBtn");
+const extraCards = document.querySelector(".extra-cards");
+
+let isVisible = false;
+
+showMoreBtn.addEventListener("click", () => {
+  if (!isVisible) {
+    // إظهار الكروت مع أنميشن
+    extraCards.classList.remove("hidden-gallery");
+    extraCards.classList.add("fade-in");
+
+    showMoreBtn.textContent = "Show Less";
+    isVisible = true;
+
+    // سكرول ناعم
+    setTimeout(() => {
+      extraCards.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 600); // نفس توقيت الأنميشن
+  } else {
+    // إخفاء الكروت
+    extraCards.classList.add("fade-out");
+
+    // بعد انتهاء الأنميشن، نخفيهم
+    setTimeout(() => {
+      extraCards.classList.remove("fade-in", "fade-out");
+      extraCards.classList.add("hidden-gallery");
+    }, 500); // نفس وقت fadeOutDown
+
+    showMoreBtn.textContent = "Show More";
+    isVisible = false;
+  }
+});
