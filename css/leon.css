@@ -73,7 +73,30 @@ body {
 /* Srtat Header */
 .header {
   padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.header.shadow {
+  opacity: 0.4;
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header.hidden {
+  opacity: 0;
+  transform: translateY(-10px); /* هذا يعني تحريكه للأعلى */
+  box-shadow: none;
+}
+
 .header .container {
   display: flex;
   justify-content: space-between;
@@ -93,6 +116,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
+  cursor: pointer;
 }
 .header .links .icon span {
   background-color: #333;
@@ -109,7 +133,7 @@ body {
 .header .links .icon span:last-child {
   width: 100%;
 }
-.header .links ul {
+.header .links .menu {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -118,9 +142,19 @@ body {
   right: 0;
   min-width: 200px;
   top: calc(100% + 15px);
-  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* يمنع الضغط عليها وهي مخفية */
   z-index: 100;
 }
+
+.header .links .menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 /* *مثلث */
 .header .links ul::before {
   content: "";
@@ -131,9 +165,9 @@ body {
   right: 5px;
   top: -20px;
 }
-.header .links:hover ul {
+/* .header .links:hover ul {
   display: block;
-}
+} */
 .header .links ul li a {
   display: block;
   padding: 15px;
@@ -406,3 +440,61 @@ body {
   line-height: 1.3rem;
 }
 /* End About */
+
+/* Start scroll Top Btn */
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px); /* يبدأ بتحرك لأسفل */
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+#scrollTopBtn:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* يرجع مكانه الطبيعي */
+}
+@media (max-width: 991px) {
+  #scrollTopBtn {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+  }
+
+  #scrollTopBtn.show {
+    opacity: 0.6;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  #scrollTopBtn i {
+    font-size: 16px;
+  }
+}
+
+/* End scroll Top Btn */
