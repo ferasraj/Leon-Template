@@ -2,10 +2,6 @@
 
 Leon is a simple and elegant personal portfolio template built with **HTML**, **CSS**, and **Vanilla JavaScript** — no external libraries or frameworks.
 
-## 💻 Live Demo
-
-[🔗 View Live](https://ferasraj.github.io/Leon-Template/)
-
 ## 🛠️ Built With
 
 - HTML5
@@ -61,13 +57,9 @@ You can deploy it on:
 
 ---
 
-## 🇸🇦 قالب ليون
+## قالب ليون
 
 **ليون** هو قالب موقع شخصي بسيط وأنيق، مبني باستخدام **HTML** و **CSS** و **JavaScript** بدون أي مكتبات خارجية.
-
-## 💻 العرض المباشر
-
-[🔗 شاهد القالب مباشرًا](https://ferasraj.github.io/Leon-Template/)
 
 ## 🛠️ التقنيات المستخدمة
 
